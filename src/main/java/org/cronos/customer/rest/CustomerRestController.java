@@ -23,7 +23,7 @@ public class CustomerRestController {
 		return ResponseEntity.ok(customer);
 	}
 	
-	@PostMapping("/{dni}")
+	@PostMapping
 	public ResponseEntity<Customer> save(@RequestBody Customer customer) {
 		
 		return ResponseEntity.ok(customer);
