@@ -2,6 +2,7 @@ package org.cronos.customer.rest;
 
 import org.cronos.constant.Constant;
 import org.cronos.customer.model.Customer;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -16,10 +17,14 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping(value = Constant.API)
 public class CustomerRestController {
 
+	@Value("${cronos.message.general}")
+	private String message;
+	
 	@GetMapping("/{dni}")
 	public ResponseEntity<Customer> get(@PathVariable("dni") String dni) {
 		Customer customer = new Customer();
 		customer.setDni(dni);
+        customer.setFrom(message);		
 		return ResponseEntity.ok(customer);
 	}
 	
