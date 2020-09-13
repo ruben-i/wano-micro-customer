@@ -24,6 +24,7 @@ public class CustomerRestController {
 	public ResponseEntity<Customer> get(@PathVariable("dni") String dni) {
 		Customer customer = new Customer();
 		customer.setDni(dni);
+		customer.setPhone(String.valueOf((int)(Math.random()*100000)));
         customer.setFrom(message);		
 		return ResponseEntity.ok(customer);
 	}

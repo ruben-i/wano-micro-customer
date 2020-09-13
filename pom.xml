@@ -13,7 +13,7 @@
 	<artifactId>customer</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>customer</name>
-	<packaging>jar</packaging>
+	<packaging>war</packaging>
 	<description>crud customer</description>
 
 	<properties>
@@ -25,7 +25,10 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
 		</dependency>
-
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-actuator</artifactId>
+		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-devtools</artifactId>
@@ -52,9 +55,12 @@
 
 	<build>
 		<resources>
+
+			<!-- Map ${} into resources -->
 			<resource>
 				<directory>src/main/resources</directory>
 				<filtering>true</filtering>
+
 			</resource>
 		</resources>
 
@@ -71,10 +77,7 @@
 			<id>dev</id>
 			<activation>
 				<activeByDefault>true</activeByDefault>
-				<property>
-					<name>env</name>
-					<value>dev</value>
-				</property>
+
 			</activation>
 
 			<properties>
@@ -85,18 +88,15 @@
 
 		<profile>
 			<id>prod</id>
-			<activation>
-				<property>
-					<name>env</name>
-					<value>prod</value>
-				</property>
-			</activation>
+
 			<properties>
 				<profileActive>prod</profileActive>
-				<cronos.ssh.server>prod devbeloper</cronos.ssh.server>
+				<cronos.ssh.server>prod developer</cronos.ssh.server>
 			</properties>
 		</profile>
 
 	</profiles>
+
+
 
 </project>
