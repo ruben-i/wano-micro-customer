@@ -1,14 +1,13 @@
 package org.cronos.customer.model;
 
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 public class Customer {
 	private String dni;
 	private String firstName;
 	private String lastName;
 	private String email;
-	private String phone;
-	private LocalDate creation;
+	private LocalDateTime creation;
 	private String from;
 
 	public String getDni() {
@@ -43,19 +42,11 @@ public class Customer {
 		this.email = email;
 	}
 
-	public String getPhone() {
-		return phone;
-	}
-
-	public void setPhone(String phone) {
-		this.phone = phone;
-	}
-
-	public LocalDate getCreation() {
+	public LocalDateTime getCreation() {
 		return creation;
 	}
 
-	public void setCreation(LocalDate creation) {
+	public void setCreation(LocalDateTime creation) {
 		this.creation = creation;
 	}
 
